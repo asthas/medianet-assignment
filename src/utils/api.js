@@ -3,6 +3,6 @@
  */
 
 export const getData = () => {
-  return fetch('/data.json')
-    .then(res => res.json());
+	return fetch('/data.json')
+		.then(res => res.json());
 }
