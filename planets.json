@@ -1,0 +1,28 @@
+{
+	"products": [
+		{
+		"quantity": 100,
+		"system": "Mars"
+		},
+		{
+		"quantity": 101,
+		"system": "Jupiter"
+		},
+		{
+		"quantity": 102,
+		"system": "Earth"
+		},
+		{
+		"quantity": 103,
+		"system": "Saturn"
+		},
+		{
+		"quantity": 104,
+		"system": "Neptune"
+		},
+		{
+		"quantity": 105,
+		"system": "No System"
+		}
+	]
+}
