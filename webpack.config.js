@@ -4,11 +4,16 @@
 
 'use strict';
 
-const { resolve }       = require('path');
-const webpack           = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { resolve }        = require('path');
+const webpack            = require('webpack');
+const HtmlWebpackPlugin  = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin  = require('copy-webpack-plugin');
 
 const ifProd = (plugin) => (isProd) => isProd ? plugin : null;
+
+const srcFolder  = resolve(__dirname, 'src');
+const distFolder = resolve(__dirname, 'dist');
 
 module.exports = (env) => ({
   entry: {
@@ -21,17 +26,19 @@ module.exports = (env) => ({
     'app': './index.js',
   },
   output: {
-    path: resolve(__dirname, 'dist'),
+    path: distFolder,
     filename: '[name].js',
     publicPath: '/',
   },
-  context: resolve(__dirname, 'src'),
+  context: srcFolder,
   devtool: 'source-map',
   resolve: {
       // Add `.ts` and `.tsx` as a resolvable extension.
       extensions: ['.webpack.js', '.web.js', '.js', '.json'],
   },
   plugins: [
+    new CleanWebpackPlugin(distFolder),
+    new CopyWebpackPlugin([{ from: resolve(srcFolder, '../public') }]),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor', 'manifest'],
       minChunks: Infinity,
@@ -52,7 +59,7 @@ module.exports = (env) => ({
         warnings: false,
       },
     }))(env.prod),
-    new HtmlWebpackPlugin({ template: '../public/index.html' }),
+    new HtmlWebpackPlugin({ template: resolve(srcFolder, '../public/index.html') }),
   ].filter(plugin => !!plugin),
   module: {
       rules: [
