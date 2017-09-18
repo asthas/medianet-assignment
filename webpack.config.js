@@ -5,9 +5,12 @@
 'use strict';
 
 const { resolve }       = require('path');
+const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = () => ({
+const ifProd = (plugin) => (isProd) => isProd ? plugin : null;
+
+module.exports = (env) => ({
   entry: {
     'vendor': [
       'bulma',
@@ -29,8 +32,28 @@ module.exports = () => ({
       extensions: ['.webpack.js', '.web.js', '.js', '.json'],
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['vendor', 'manifest'],
+      minChunks: Infinity,
+    }),
+    new webpack.HashedModuleIdsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: env.prod ? '"production"' : '"development"',
+      },
+    }),
+    ifProd(new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false,
+    }))(env.prod),
+    ifProd(new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        screw_ie8: true,
+        warnings: false,
+      },
+    }))(env.prod),
     new HtmlWebpackPlugin({ template: '../public/index.html' }),
-  ],
+  ].filter(plugin => !!plugin),
   module: {
       rules: [
         // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
