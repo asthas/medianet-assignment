@@ -1,20 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import { insertGlobalStyles } from './utils/global-styles';
-import { getData } from './utils/api';
-import Navbar from './components/navbar';
+import { insertGlobalStyles } from './utils/global-styles'
+import Navbar from './components/nav-bar'
+import List from './components/list'
 
 const App = () => (
   	<div>
   		<Navbar />
-		Hello, world!
+  		<List />
   	</div>
-);
+)
 
-getData()
-	.then(data => console.log(data));
+insertGlobalStyles()
 
-insertGlobalStyles();
-
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'))

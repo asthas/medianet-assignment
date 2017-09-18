@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "bulma": "^0.5.2",
+    "lodash.groupby": "^4.6.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "typestyle": "^1.4.1"

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const item = (props) => {
+const Item = (props) => {
 	return(
 		<li>
 			<h4 className="title">{props.title}</h4>
@@ -9,3 +9,5 @@ const item = (props) => {
 		</li>
 	)
 }
+
+export default Item
