@@ -6,7 +6,7 @@ import Navbar from './components/nav-bar'
 import List from './components/list'
 
 const App = () => (
-  	<div>
+  	<div className="home">
   		<Navbar />
   		<List />
   	</div>

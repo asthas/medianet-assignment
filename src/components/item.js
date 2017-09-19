@@ -3,9 +3,11 @@ import React from 'react'
 const Item = (props) => {
 	return(
 		<li>
-			<h4 className="title">{props.title}</h4>
-			<h5 className="quantity">{props.quantity} Products</h5>
-			<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+			<span className="title">{props.title}</span>
+			<span className="quantity-container is-pulled-right">
+				<span>{props.quantity} Products</span>
+				<i className="fa fa-ellipsis-h" aria-hidden="true"></i>
+			</span>
 		</li>
 	)
 }

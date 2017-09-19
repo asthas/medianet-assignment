@@ -47,7 +47,8 @@ class List extends Component {
 		}
 		return (
 			<div>
-				<p>Total Products {sum(products)}</p>
+				<p>{sum(products)} Products</p>
+				
 				<div>
 					{normalize(products, currentFilter).map(product =>
 						(<Item {...product} />)

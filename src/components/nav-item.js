@@ -5,7 +5,7 @@ const NavItem = ({
 	icon,
 	title,
 }) => (
-	<a className="navbar-item " href={link}>
+	<a className="navbar-item column" href={link}>
 		<i className={icon} aria-hidden="true"></i>
 		{title}
 	</a>

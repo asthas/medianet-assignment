@@ -47,7 +47,7 @@ const Navbar = () => (
 					<a className="navbar-item" href="http://bulma.io">
 						<a className="navbar-item " href="http://bulma.io/expo/">
 							<span className="bd-emoji">⭐️</span>
-							<h2>Helio</h2>
+							<span>Helia</span>
 						</a>      
 					</a>
 				</div>
@@ -85,7 +85,7 @@ const Navbar = () => (
 		<div id="secondary-navbar">
 			<nav className="navbar is-transparent">
 				<div id="navMenuTransparentExample" className="navbar-menu">
-					<div className="navbar-start">
+					<div className="navbar-start columns is-mobile">
 						{navLinks.map((navItem, i) => (
 							<NavItem key={i} {...navItem} />
 						))}
