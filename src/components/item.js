@@ -3,14 +3,18 @@ import {
 	style,
 } from 'typestyle'
 
-const title = style({
+const listItemClass = style({
+	boxShadow: '0px 0px 8px 0px rgba(0,0,0,0.75)',
+})
+
+const titleClass = style({
 	display: 'inline-block',
 	fontSize: '14px',
 	margin: '10px',
 	color: '#868686'
 })
 
-const quantityContainer = style({
+const quantityContainerClass = style({
 	display: 'inline-block',
 	fontSize: '10px',
 	margin: '12px',
@@ -25,9 +29,9 @@ const quantityContainer = style({
 
 const Item = (props) => {
 	return(
-		<li>
-			<span className={title}>{props.title}</span>
-			<span className={`${quantityContainer} is-pulled-right`}>
+		<li className={listItemClass}>
+			<span className={titleClass}>{props.title}</span>
+			<span className={`${quantityContainerClass} is-pulled-right`}>
 				<span>{props.quantity} Products</span>
 				<i className="fa fa-ellipsis-h" aria-hidden="true"></i>
 			</span>
