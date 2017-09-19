@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { style } from 'typestyle'
 
 import Item from './item'
-import Filter from './filter'
+import Filters from './filters'
 import Loading from './loading'
 import { getData } from '../utils/api'
 import {
@@ -23,15 +23,6 @@ const priceClass = style({
 	fontSize: '18px',
 	fontWeight: 'bold',
 	color: '#868686'
-})
-const filtersClass = style({
-	marginTop: '10px',
-	color: '#c2c2c2',
-	textAlign: 'center',
-	fontSize: '12px',
-	maxWidth: '100%',
-	width: '40%',
-	fontWeight: 'bold'
 })
 const listContainerClass = style({
 	width: '80%',
@@ -89,11 +80,7 @@ class ListContainer extends Component {
 					<span className={priceClass}>Price List</span>
 					<span className={productCount}>{sum(products)} Products</span>
 				</header>
-				<div className={`${filtersClass} columns is-mobile`}>
-					{filters.map((filter, i) =>
-						(<Filter key={i} filter={filter} />)
-					)}
-				</div>
+				<Filters />
 				<div>
 					{normalize(products, currentFilter).map((product, i) =>
 						(<Item key={i} {...product} />)

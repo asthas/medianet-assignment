@@ -71,6 +71,9 @@ module.exports = (env) => ({
 			  loader: 'babel-loader',
 			  options: {
 				cacheDirectory: true,
+				plugins: [
+					'transform-class-properties'
+				],
 				presets: [
 				  'env',
 				  'react',

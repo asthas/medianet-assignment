@@ -12,11 +12,18 @@ const filterItemLinkClass = style({
 	},
 })
 
-const Filter = (props) => {
+const Filter = ({
+    filter,
+    onClick,
+    active,
+}) => {
 	return(
 		<div className="filter-item column">
-			<a className={filterItemLinkClass} href="#">
-				{props.filter}
+			<a className={`${filterItemLinkClass} ${active ? 'is-active' : ''}`}
+                href="#"
+                onClick={onClick}
+            >
+				{filter}
 			</a>
 		</div>
 	)

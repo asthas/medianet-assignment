@@ -1,7 +1,7 @@
 import React from 'react'
 import { style } from 'typestyle'
 
-const navBarItemClass = style({
+const navItemClass = style({
 	color: '#c2c2c2',
 	textAlign: 'center',
 	fontSize: '12px'
@@ -12,7 +12,7 @@ const NavItem = ({
 	icon,
 	title,
 }) => (
-	<div className={`${navBarItemClass} column`}>
+	<div className={`${navItemClass} column`}>
 		<a href={link}>
 			<i className={icon} aria-hidden="true"></i>
 			{title}

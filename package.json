@@ -4,6 +4,7 @@
     "build": "webpack --env.prod"
   },
   "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "bulma": "^0.5.2",
     "lodash.groupby": "^4.6.0",
     "react": "^15.6.1",
