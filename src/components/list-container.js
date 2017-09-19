@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import { style } from 'typestyle'
+
 import Item from './item'
 import Filter from './filter'
 import Loading from './loading'
@@ -7,6 +9,35 @@ import {
 	sum,
 	normalize
 } from '../utils/normalize'
+
+const productCount = style({
+	marginLeft: '20px',
+	color: '#c2c2c2',
+	textAlign: 'center',
+	fontSize: '12px',
+	maxWidth: '100%',
+	width: '40%',
+	fontWeight: 'bold'
+})
+const priceClass = style({
+	fontSize: '18px',
+	fontWeight: 'bold',
+	color: '#868686'
+})
+const filtersClass = style({
+	marginTop: '10px',
+	color: '#c2c2c2',
+	textAlign: 'center',
+	fontSize: '12px',
+	maxWidth: '100%',
+	width: '40%',
+	fontWeight: 'bold'
+})
+const listContainerClass = style({
+	width: '80%',
+	margin: '0 auto',
+	marginTop: '30px'
+})
 
 class ListContainer extends Component {
 
@@ -50,16 +81,16 @@ class ListContainer extends Component {
 		if (loading || !products) {
 			return (
 				<Loading />
-			)		
+			)
 		}
 		return (
-			<div className="list-container">
+			<div className={listContainerClass}>
 				<header>
-					<span className="price">Price List</span>
-					<span className="product-count">{sum(products)} Products</span>
+					<span className={priceClass}>Price List</span>
+					<span className={productCount}>{sum(products)} Products</span>
 				</header>
-				<div className="filters columns is-mobile">
-					{filters.map((filter, i) => 
+				<div className={`${filtersClass} columns is-mobile`}>
+					{filters.map((filter, i) =>
 						(<Filter key={i} filter={filter} />)
 					)}
 				</div>

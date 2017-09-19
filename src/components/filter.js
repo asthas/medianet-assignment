@@ -1,11 +1,23 @@
 import React from 'react'
+import { style } from 'typestyle'
+
+const filterItemLinkClass = style({
+    padding: '6px',
+	$nest: {
+		'&:hover, &.is-active': {
+            color: '#fff',
+            backgroundColor: '#03A9F4',
+            borderRadius: '12px'
+        },
+	},
+})
 
 const Filter = (props) => {
 	return(
 		<div className="filter-item column">
-			<a href="#">
+			<a className={filterItemLinkClass} href="#">
 				{props.filter}
-			</a>	
+			</a>
 		</div>
 	)
 }

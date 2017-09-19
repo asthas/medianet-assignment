@@ -5,25 +5,15 @@
 import { cssRule } from 'typestyle'
 
 export const insertGlobalStyles = () => {
+	cssRule('html, body, #app', {
+		height: '100%',
+	})
 	cssRule('p', {
 		margin: 0,
 	})
 	cssRule('a', {
 		color: 'inherit',
 		textDecoration: 'none',
-	})
-	cssRule('.title', {
-		display: 'inline-block',
-		fontSize: '14px',
-		margin: '10px',
-		color: '#868686'
-	})
-	cssRule('.quantity-container', {
-		display: 'inline-block',
-		fontSize: '10px',
-		margin: '12px',
-		color: '#c2c2c2',
-		fontWeight: 'bold'
 	})
 	cssRule('li', {
 		margin: '0 auto',
@@ -35,9 +25,6 @@ export const insertGlobalStyles = () => {
 		borderLeft: '5px solid #03A9F4',
 		height: '52px',
 		padding: '8px'
-	})
-	cssRule('.home', {
-		backgroundColor: '#f2f2f2' 
 	})
 	cssRule('.fa-ellipsis-h', {
 		marginLeft: '12px'
@@ -72,37 +59,5 @@ export const insertGlobalStyles = () => {
 		fontSize: '18px',
 		color: '#03A9F4',
 		fontWeight: 'bold'
-	})
-	cssRule('.filters, .product-count', {
-		color: '#c2c2c2',
-		textAlign: 'center',
-		fontSize: '12px',
-		maxWidth: '100%',
-		width: '40%',
-		fontWeight: 'bold'
-	})
-	cssRule('.list-container', {
-		width: '80%',
-		margin: '0 auto',
-		marginTop: '30px'
-	})
-	cssRule('.price', {
-		fontSize: '18px',
-		fontWeight: 'bold',
-		color: '#868686'
-	})
-	cssRule('.product-count', {
-		marginLeft: '20px'
-	})
-	cssRule('.filters', {
-		marginTop: '10px'
-	})
-	cssRule('.filter-item a', {
-		padding: '6px'
-	})
-	cssRule('.filter-item a:hover, a.is-active', {
-		color: '#fff',
-		backgroundColor: '#03A9F4',
-		borderRadius: '12px'
 	})
 }
