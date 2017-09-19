@@ -40,6 +40,33 @@ const navLinks = [
 	},
 ]
 
+const dropdownLinks = [
+    {
+        title: 'Overview',
+        link: '#',
+    },
+    {
+        title: 'Modifiers',
+        link: '#',
+    },
+    {
+        title: 'Columns',
+        link: '#',
+    },
+    {
+        title: 'Layout',
+        link: '#',
+    },
+    {
+        title: 'Form',
+        link: '#',
+    },
+    {
+        title: 'Elements',
+        link: '#',
+    },
+]
+
 const mainNavbarClass = style({
 	$nest: {
 		'& .navbar': {
@@ -105,24 +132,11 @@ const Navbar = () => (
 								Biologix
 							</a>
 							<div className="navbar-dropdown is-boxed">
-								<a className="navbar-item " href="/documentation/overview/start/">
-									Overview
-								</a>
-								<a className="navbar-item " href="http://bulma.io/documentation/modifiers/syntax/">
-									Modifiers
-								</a>
-								<a className="navbar-item " href="http://bulma.io/documentation/columns/basics/">
-									Columns
-								</a>
-								<a className="navbar-item " href="http://bulma.io/documentation/layout/container/">
-									Layout
-								</a>
-								<a className="navbar-item " href="http://bulma.io/documentation/form/general/">
-									Form
-								</a>
-								<a className="navbar-item " href="http://bulma.io/documentation/elements/box/">
-									Elements
-								</a>
+								{dropdownLinks.map((item) => (
+                                    <a className="navbar-item" href={item.link}>
+                                        {item.title}
+								    </a>
+                                ))}
 							</div>
 						</div>
 					</div>
