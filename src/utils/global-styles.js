@@ -26,38 +26,4 @@ export const insertGlobalStyles = () => {
 		height: '52px',
 		padding: '8px'
 	})
-	cssRule('.fa-ellipsis-h', {
-		marginLeft: '12px'
-	})
-	cssRule('.navbar-item', {
-		color: '#c2c2c2',
-		textAlign: 'center',
-		fontSize: '12px'
-	})
-	cssRule('.navbar-start.columns.is-mobile', {
-		'width': '101%'
-	})
-	cssRule('#secondary-navbar .navbar', {
-		minHeight: '40px',
-		borderBottom: '3px solid #e2e2e2',
-		paddingTop: '10px',
-		fontWeight: 'bold',
-		color: '#c2c2c2',
-	})
-	cssRule('#secondary-navbar a:hover, a.is-active', {
-		color: '#03A9F4'
-	})
-	cssRule('#main-navbar .navbar', {
-		minHeight: '48px',
-		borderBottom: '1px solid #e2e2e2',
-		color: '#c2c2c2',
-	})
-	cssRule('.navbar-start .fa', {
-		marginRight: '8px'
-	})
-	cssRule('.navbar-brand .navbar-item', {
-		fontSize: '18px',
-		color: '#03A9F4',
-		fontWeight: 'bold'
-	})
 }

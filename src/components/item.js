@@ -15,7 +15,12 @@ const quantityContainer = style({
 	fontSize: '10px',
 	margin: '12px',
 	color: '#c2c2c2',
-	fontWeight: 'bold'
+	fontWeight: 'bold',
+	$nest: {
+		'& .fa-ellipsis-h': {
+			marginLeft: '12px'
+		}
+	}
 })
 
 const Item = (props) => {

@@ -1,5 +1,6 @@
 import React from 'react'
 import NavItem from './nav-item'
+import { style } from 'typestyle'
 
 const navLinks = [
 	{
@@ -39,16 +40,62 @@ const navLinks = [
 	},
 ]
 
+const mainNavbarClass = style({
+	$nest: {
+		'& .navbar': {
+			minHeight: '48px',
+			borderBottom: '1px solid #e2e2e2',
+			color: '#c2c2c2',
+		}
+	},
+})
+
+const secondaryNavbarClass = style({
+	$nest: {
+		'& a:hover, a.is-active': {
+		    color: '#03A9F4',
+		},
+		'& .navbar':  {
+			minHeight: '40px',
+			borderBottom: '3px solid #e2e2e2',
+			paddingTop: '10px',
+			fontWeight: 'bold',
+			color: '#c2c2c2',
+		}
+	},
+})
+
+const navbarBrandClass = style({
+	$nest: {
+		'& .navbar-item': {
+			fontSize: '18px',
+			color: '#03A9F4',
+			fontWeight: 'bold'
+		}
+	},
+})
+
+const navbarStartClass = style({
+    $nest: {
+        '& .fa': {
+            marginRight: '8px',
+        },
+        '& .columns.is-mobile': {
+            'width': '101%',
+        },
+    }
+})
+
 const Navbar = () => (
 	<div>
-		<div id="main-navbar">
+		<div className={mainNavbarClass}>
 			<nav className="navbar is-transparent">
-				<div className="navbar-brand">
+				<div className={navbarBrandClass}>
 					<a className="navbar-item" href="http://bulma.io">
 						<a className="navbar-item " href="http://bulma.io/expo/">
 							<span className="bd-emoji">⭐️</span>
 							<span>Helia</span>
-						</a>      
+						</a>
 					</a>
 				</div>
 				<div id="navMenuTransparentExample" className="navbar-menu">
@@ -82,13 +129,13 @@ const Navbar = () => (
 				</div>
 			</nav>
 		</div>
-		<div id="secondary-navbar">
-			<div className="navbar navbar-start columns is-mobile">
+		<div className={secondaryNavbarClass}>
+			<div className={`${navbarStartClass} navbar navbar-start columns is-mobile`}>
 				{navLinks.map((navItem, i) => (
 					<NavItem key={i} {...navItem} />
 				))}
 			</div>
-		</div>	
+		</div>
 	</div>
 );
 
