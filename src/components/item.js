@@ -4,7 +4,7 @@ import {
 } from 'typestyle'
 
 const listItemClass = style({
-	boxShadow: '0px 0px 8px 0px rgba(0,0,0,0.75)',
+	boxShadow: '3px 3px 3px #c2c2c2',
 })
 
 const titleClass = style({
