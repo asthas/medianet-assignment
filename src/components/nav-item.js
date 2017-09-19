@@ -5,10 +5,12 @@ const NavItem = ({
 	icon,
 	title,
 }) => (
-	<a className="navbar-item column" href={link}>
-		<i className={icon} aria-hidden="true"></i>
-		{title}
-	</a>
+	<div className="navbar-item column">
+		<a href={link}>
+			<i className={icon} aria-hidden="true"></i>
+			{title}
+		</a>
+	</div>
 )
 
 export default NavItem

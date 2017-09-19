@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom'
 
 import { insertGlobalStyles } from './utils/global-styles'
 import Navbar from './components/nav-bar'
-import List from './components/list'
+import ListContainer from './components/list-container'
 
 const App = () => (
   	<div className="home">
   		<Navbar />
-  		<List />
+  		<ListContainer />
   	</div>
 )
 

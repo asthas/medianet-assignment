@@ -26,7 +26,6 @@ export const insertGlobalStyles = () => {
 		fontWeight: 'bold'
 	})
 	cssRule('li', {
-		width: '80%',
 		margin: '0 auto',
 		backgroundColor: 'white',
 		boxShadow: '5px 5px 5px #eee',
@@ -49,7 +48,7 @@ export const insertGlobalStyles = () => {
 		fontSize: '12px'
 	})
 	cssRule('.navbar-start.columns.is-mobile', {
-		'width': '100%'
+		'width': '101%'
 	})
 	cssRule('#secondary-navbar .navbar', {
 		minHeight: '40px',
@@ -58,7 +57,7 @@ export const insertGlobalStyles = () => {
 		fontWeight: 'bold',
 		color: '#c2c2c2',
 	})
-	cssRule('#secondary-navbar a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.is-active', {
+	cssRule('#secondary-navbar a:hover, a.is-active', {
 		color: '#03A9F4'
 	})
 	cssRule('#main-navbar .navbar', {
@@ -73,5 +72,37 @@ export const insertGlobalStyles = () => {
 		fontSize: '18px',
 		color: '#03A9F4',
 		fontWeight: 'bold'
+	})
+	cssRule('.filters, .product-count', {
+		color: '#c2c2c2',
+		textAlign: 'center',
+		fontSize: '12px',
+		maxWidth: '100%',
+		width: '40%',
+		fontWeight: 'bold'
+	})
+	cssRule('.list-container', {
+		width: '80%',
+		margin: '0 auto',
+		marginTop: '30px'
+	})
+	cssRule('.price', {
+		fontSize: '18px',
+		fontWeight: 'bold',
+		color: '#868686'
+	})
+	cssRule('.product-count', {
+		marginLeft: '20px'
+	})
+	cssRule('.filters', {
+		marginTop: '10px'
+	})
+	cssRule('.filter-item a', {
+		padding: '6px'
+	})
+	cssRule('.filter-item a:hover, a.is-active', {
+		color: '#fff',
+		backgroundColor: '#03A9F4',
+		borderRadius: '12px'
 	})
 }

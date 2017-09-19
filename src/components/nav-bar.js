@@ -83,15 +83,11 @@ const Navbar = () => (
 			</nav>
 		</div>
 		<div id="secondary-navbar">
-			<nav className="navbar is-transparent">
-				<div id="navMenuTransparentExample" className="navbar-menu">
-					<div className="navbar-start columns is-mobile">
-						{navLinks.map((navItem, i) => (
-							<NavItem key={i} {...navItem} />
-						))}
-					</div>
-				</div>
-			</nav>
+			<div className="navbar navbar-start columns is-mobile">
+				{navLinks.map((navItem, i) => (
+					<NavItem key={i} {...navItem} />
+				))}
+			</div>
 		</div>	
 	</div>
 );

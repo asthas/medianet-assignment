@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Item from './item'
+import Filter from './filter'
 import Loading from './loading'
 import { getData } from '../utils/api'
 import {
@@ -7,7 +8,7 @@ import {
 	normalize
 } from '../utils/normalize'
 
-class List extends Component {
+class ListContainer extends Component {
 
 	constructor(props) {
 		super(props)
@@ -34,6 +35,12 @@ class List extends Component {
 	}
 
 	render () {
+		const filters = [
+			'Products',
+			'Systems',
+			'Anatomy',
+			'SKU'
+		]
 		const {
 			loading,
 			products,
@@ -46,12 +53,19 @@ class List extends Component {
 			)		
 		}
 		return (
-			<div>
-				<p>{sum(products)} Products</p>
-				
+			<div className="list-container">
+				<header>
+					<span className="price">Price List</span>
+					<span className="product-count">{sum(products)} Products</span>
+				</header>
+				<div className="filters columns is-mobile">
+					{filters.map((filter, i) => 
+						(<Filter key={i} filter={filter} />)
+					)}
+				</div>
 				<div>
-					{normalize(products, currentFilter).map(product =>
-						(<Item {...product} />)
+					{normalize(products, currentFilter).map((product, i) =>
+						(<Item key={i} {...product} />)
 					)}
 				</div>
 			</div>
@@ -59,4 +73,4 @@ class List extends Component {
 	}
 }
 
-export default List
+export default ListContainer
