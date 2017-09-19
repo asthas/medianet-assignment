@@ -41,30 +41,30 @@ const navLinks = [
 ]
 
 const dropdownLinks = [
-    {
-        title: 'Overview',
-        link: '#',
-    },
-    {
-        title: 'Modifiers',
-        link: '#',
-    },
-    {
-        title: 'Columns',
-        link: '#',
-    },
-    {
-        title: 'Layout',
-        link: '#',
-    },
-    {
-        title: 'Form',
-        link: '#',
-    },
-    {
-        title: 'Elements',
-        link: '#',
-    },
+	{
+		title: 'Overview',
+		link: '#',
+	},
+	{
+		title: 'Modifiers',
+		link: '#',
+	},
+	{
+		title: 'Columns',
+		link: '#',
+	},
+	{
+		title: 'Layout',
+		link: '#',
+	},
+	{
+		title: 'Form',
+		link: '#',
+	},
+	{
+		title: 'Elements',
+		link: '#',
+	},
 ]
 
 const mainNavbarClass = style({
@@ -80,7 +80,7 @@ const mainNavbarClass = style({
 const secondaryNavbarClass = style({
 	$nest: {
 		'& a:hover, a.is-active': {
-		    color: '#03A9F4',
+			color: '#03A9F4',
 		},
 		'& .navbar':  {
 			minHeight: '40px',
@@ -103,54 +103,129 @@ const navbarBrandClass = style({
 })
 
 const navbarStartClass = style({
-    $nest: {
-        '& .fa': {
-            marginRight: '8px',
-        },
-        '& .columns.is-mobile': {
-            'width': '101%',
-        },
-    }
+	$nest: {
+		'& .fa': {
+			marginRight: '8px',
+		},
+		'& .columns.is-mobile': {
+			'width': '101%',
+		},
+	}
 })
 
-const Navbar = () => (
-	<div>
-		<div className={mainNavbarClass}>
-			<nav className="navbar is-transparent">
-				<div className={navbarBrandClass}>
-					<a className="navbar-item" href="http://bulma.io">
-						<a className="navbar-item " href="http://bulma.io/expo/">
-							<span className="bd-emoji">⭐️</span>
-							<span>Helia</span>
-						</a>
-					</a>
-				</div>
-				<div id="navMenuTransparentExample" className="navbar-menu">
-					<div className="navbar-end">
-						<div className="navbar-item has-dropdown is-hoverable">
-							<a className="navbar-link  is-active" href="/documentation/overview/start/">
-								Biologix
+const notification = style({
+	marginRight: '24px',
+	display: 'flex',
+	alignItems: 'center',
+	position: 'relative'
+})
+
+const brand = style({
+	$nest: {
+		'& span': {
+			color: '#868686',
+			fontSize: '14px',
+			fontWeight: 'bold'
+		},
+		'&:after': {
+			border: '3px solid grey',
+			borderRight: '0',
+			borderTop: '0'
+		}
+	}
+})
+
+const countContainer = style({
+	position: 'absolute',
+	backgroundColor: 'red',
+    right: '-6px',
+    top: '18px',
+    width: '14px',
+    height: '14px',
+    borderRadius: '50%'
+})
+
+const count = style({
+	color: '#fff',
+    fontSize: '10px',
+    position: 'absolute',
+    right: '-2px',
+    top: '19px',
+    fontWeight: 'bold'
+
+})
+
+class Navbar extends React.Component{
+
+	constructor(props){
+		super(props)
+		this.state = {
+			activeIndex: 3
+		}
+	}
+
+	handleClick = (index) => {
+		this.setState({
+			activeIndex: index
+		})
+	}
+
+	render(){
+		return(
+			<div>
+				<div className={mainNavbarClass}>
+					<nav className="navbar is-transparent">
+						<div className={navbarBrandClass}>
+							<a className="navbar-item" href="http://bulma.io">
+								<a className="navbar-item " href="http://bulma.io/expo/">
+									<span className="bd-emoji">⭐️</span>
+									<span>Helia</span>
+								</a>
 							</a>
-							<div className="navbar-dropdown is-boxed">
-								{dropdownLinks.map((item) => (
-                                    <a className="navbar-item" href={item.link}>
-                                        {item.title}
-								    </a>
-                                ))}
+						</div>
+						<div id="navMenuTransparentExample" className="navbar-menu">
+							<div className="navbar-end">
+								<a className={`${notification} fa fa-bell`} aria-hidden="true">
+									<span className={countContainer}></span>
+									<span className={count}>2</span>
+								</a>
+								<div className="navbar-item has-dropdown is-hoverable">
+									<a className={`${brand} navbar-link  is-active`} href="/documentation/overview/start/">
+										<span>Biologix</span>
+									</a>
+									<div className="navbar-dropdown is-boxed">
+										{dropdownLinks.map((item, i) => (
+											<a
+												key={i}
+												className="navbar-item"
+												href={item.link}>
+												{item.title}
+											</a>
+										 ))}
+									</div>
+								</div>
 							</div>
 						</div>
+					</nav>
+				</div>
+				<div className={secondaryNavbarClass}>
+					<div className={`${navbarStartClass} navbar navbar-start columns is-mobile`}>
+						{navLinks.map((navItem, i) => (
+							<NavItem 
+								key={i} 
+								{...navItem} 
+								onClick={() => this.handleClick(i)}
+								active={this.state.activeIndex === i}
+							/>
+						))}
 					</div>
 				</div>
-			</nav>
-		</div>
-		<div className={secondaryNavbarClass}>
-			<div className={`${navbarStartClass} navbar navbar-start columns is-mobile`}>
-				{navLinks.map((navItem, i) => (
-					<NavItem key={i} {...navItem} />
-				))}
 			</div>
-		</div>
-	</div>
-);
+		)
+	}
+}
+	
+	
+
 
 export default Navbar

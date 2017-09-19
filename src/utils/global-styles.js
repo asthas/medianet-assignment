@@ -7,6 +7,7 @@ import { cssRule } from 'typestyle'
 export const insertGlobalStyles = () => {
 	cssRule('html, body, #app', {
 		height: '100%',
+		backgroundColor: '#f2f2f2'
 	})
 	cssRule('p', {
 		margin: 0,

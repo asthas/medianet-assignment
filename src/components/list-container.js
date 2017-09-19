@@ -30,14 +30,32 @@ const listContainerClass = style({
 	marginTop: '30px'
 })
 
+const addProducts = style({
+	color: '#fff',
+	backgroundColor: '#03A9F4'
+})
+
+const plusIcon = style({
+	marginRight: '4px',
+	fontSize: '10px'
+})
+
 class ListContainer extends Component {
+
+	filters = [
+		'Products',
+		'System',
+		'Anatomy',
+		'SKU'
+	]
 
 	constructor(props) {
 		super(props)
 		this.state = {
 			loading: false,
 			products: null,
-			currentFilter: 'anatomy'
+			currentFilter: 'system',
+			activeIndex: 1
 		}
 	}
 
@@ -56,17 +74,21 @@ class ListContainer extends Component {
 		}
 	}
 
+	setCurrentFilter = (filterIndex) => {
+		if(filterIndex > 0){
+			this.setState({
+				activeIndex: filterIndex,
+				currentFilter: this.filters[filterIndex].toLowerCase()
+			})
+		}
+	}
+
 	render () {
-		const filters = [
-			'Products',
-			'Systems',
-			'Anatomy',
-			'SKU'
-		]
 		const {
 			loading,
 			products,
-			currentFilter
+			currentFilter,
+			activeIndex
 		} = this.state;
 
 		if (loading || !products) {
@@ -79,8 +101,18 @@ class ListContainer extends Component {
 				<header>
 					<span className={priceClass}>Price List</span>
 					<span className={productCount}>{sum(products)} Products</span>
+					<span className="is-pulled-right">
+						<a className={`${addProducts} button is-small`}>
+							<i className={`fa fa-plus ${plusIcon}`} aria-hidden="true"></i>
+							Add Products
+						</a>
+					</span>
 				</header>
-				<Filters />
+				<Filters 
+					updateCurrentFilter={this.setCurrentFilter} 
+					filters={this.filters}
+					activeIndex={activeIndex}
+				/>
 				<div>
 					{normalize(products, currentFilter).map((product, i) =>
 						(<Item key={i} {...product} />)
